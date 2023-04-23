@@ -35,7 +35,7 @@ body {
    background: var(--grey);
 }
 
-/*Side bar*/
+/* SIDE BAR */
 section#sidebar {
     background: var(--light);
     position: fixed;
@@ -74,11 +74,13 @@ section#sidebar ul.side-menu li {
     margin-left: 6px;
     border-radius: 48px 0 0 48px;
     padding: 4px;
+    transition: 300ms;
 }
 
 section#sidebar ul.side-menu li.active {
     background: var(--grey);
     position: relative;
+    transition: 300ms;
 }
 
 section#sidebar ul.side-menu li.active a {
@@ -120,6 +122,7 @@ section#sidebar ul.side-menu li a {
     border-radius: 48px;
     font-size: 16px;
     color: var(--dark);
+    transition: 500ms ease;
 }
 
 section#sidebar ul.side-menu li a.logout {
@@ -128,10 +131,131 @@ section#sidebar ul.side-menu li a.logout {
 
 section#sidebar ul.side-menu.top li a:hover {
     color: var(--blue);
+    transition: 500ms ease;
 }
 
 section#sidebar ul.side-menu li a i.bx {
     min-width: calc(60px - ((4px + 6px) * 2));
     display: flex;
     justify-content: center;
+}
+
+
+
+/* CONTENT */
+
+section#content {
+    position: relative;
+    width: calc(100% - 280px);
+    left: 280px;
+
+
+}
+
+/* NAVBAR */
+section#content nav {
+    height: 56px;
+    background: var(--light);
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    grid-gap: 24px;
+    font-family: var(--lato);
+    position: relative;
+}
+
+section#content nav::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    bottom: -40px;
+    left: 0;
+    border-radius: 50%;
+    box-shadow: -20px -20px 0 var(--light);
+}
+
+section#content nav a {
+    color: var(--dark);
+}
+
+section#content nav i.bx.bx-menu {
+    cursor: pointer;
+}
+
+section#content nav a.nav-list {
+    font-size: 1rem;
+    transition: .3s ease;
+}
+
+section#content nav a.nav-list:hover {
+    color: var(--blue);
+}
+
+section#content nav form {
+    max-width: 400px;
+    width: 100%;
+    margin-right: auto;
+}
+
+section#content nav form div.form-input {
+    display: flex;
+    align-items: center;
+    height: 36px;
+}
+
+section#content nav form div.form-input input {
+    flex-grow: 1;
+    padding: 0 16px;
+    height: 100%;
+    border: none;
+    background: var(--grey);
+    border-radius: 36px 0 0 36px;
+    outline: none;
+}
+
+section#content nav form div.form-input button{
+    width: 36px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--blue);
+    color: var(--light);
+    font-size: 18px;
+    border: none;
+    outline: none;
+    border-radius: 0 36px 36px 0;
+    cursor: pointer;
+}
+
+section#content nav a.notification {
+    font-size: 20px;
+    position: relative;
+
+}
+
+section#content nav a.notification span.num {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--light);
+    background: var(--red);
+    color: var(--light);
+    font-weight: 700;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+section#content nav a.profile img{
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+    border-radius: 50%;
 }
