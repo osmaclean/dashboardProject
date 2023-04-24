@@ -31,8 +31,13 @@ li {
     --light-orange: #ffe0d3;
 }
 
+html {
+    overflow-x: hidden;
+}
+
 body {
    background: var(--grey);
+   overflow-x: hidden;
 }
 
 /* SIDE BAR */
@@ -43,10 +48,14 @@ section#sidebar {
     left: 0;
     width: 280px;
     height: 100%;
-    z-index: 1000;
+    z-index: 2000;
     font-family: var(--lato);
     transition: .3s ease;
     overflow-x: hidden;
+}
+
+section#sidebar::-webkit-scrollbar {
+    display: none;
 }
 
 section#sidebar.hide {
@@ -60,6 +69,13 @@ section#sidebar a.brand {
     display: flex;
     align-items: center;
     color: var(--blue);
+    position: sticky;
+    top: 0;
+    left: 0;
+    background: var(--light);
+    z-index: 500;
+    padding-bottom: 20px;
+    box-sizing: content-box;
 }
 
 section#sidebar a.brand i.bx {
@@ -128,7 +144,7 @@ section#sidebar ul.side-menu li a {
     overflow-x: hidden;
 }
 
-section#sidebar.hide ul.side-menu li.active a {
+section#sidebar ul.side-menu.top li.active a {
     color: var(--blue);
 }
 
@@ -152,7 +168,7 @@ section#sidebar ul.side-menu li a i.bx {
     justify-content: center;
 }
 
-
+/* FINAL SIDE BAR */
 
 /* CONTENT */
 
@@ -177,7 +193,10 @@ section#content nav {
     align-items: center;
     grid-gap: 24px;
     font-family: var(--lato);
-    position: relative;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
 section#content nav::before {
@@ -228,6 +247,7 @@ section#content nav form div.form-input input {
     background: var(--grey);
     border-radius: 36px 0 0 36px;
     outline: none;
+    width: 100%;
 }
 
 section#content nav form div.form-input button{
@@ -276,9 +296,253 @@ section#content nav a.profile img{
     border-radius: 50%;
 }
 
+/* FINAL NAVBAR */
+
+/* MAIN */
+
+section#content main {
+    width: 100%;
+    padding: 36px 24px;
+    font-family: var(--poppins);
+    max-height: calc(100vh - 56px);
+    overflow-y: auto;
+
+}
+
+section#content main div.head-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    grid-gap: 16px;
+    flex-wrap: wrap;
+}
+
+section#content main div.head-title div.left h1 {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--dark);
+}
+
+section#content main div.head-title div.left ul.breadcrumb {
+    display: flex;
+    align-items: center;
+    grid-gap: 16px;
+}
+
+section#content main div.head-title div.left ul.breadcrumb li {
+    color: var(--dark);
+}
+
+section#content main div.head-title div.left ul.breadcrumb li a {
+    color: var(--dark-grey);
+    pointer-events: none;
+}
+
+section#content main div.head-title div.left ul.breadcrumb li a.active {
+    color: var(--blue);
+    pointer-events: unset;
+}
+
+section#content main div.head-title a.btn-download {
+    height: 36px;
+    padding: 0 16px;
+    border-radius: 36px;
+    background: var(--blue);
+    color: var(--light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 10px;
+    font-weight: 500;
+}
+
+section#content main ul.box-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-gap: 24px;
+    margin-top: 36px;
+}
+
+section#content main ul.box-info li {
+    padding: 24px;
+    background: var(--light);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    grid-gap: 24px;
+}
+
+section#content main ul.box-info li i.bx {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    font-size: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+section#content main ul.box-info li:nth-child(1) i.bx {
+    background: var(--light-blue);
+    color: var(--blue);
+}
+section#content main ul.box-info li:nth-child(2) i.bx {
+    background: var(--light-yellow);
+    color: var(--yellow);
+}
+
+section#content main ul.box-info li:nth-child(3) i.bx {
+    background: var(--light-orange);
+    color: var(--orange);
+}
+
+section#content main ul.box-info li span.text h3 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+
+section#content main div.table-data {
+    display: flex;
+    flex-wrap: wrap;
+    grid-gap: 24px;
+    margin-top: 24px;
+    width: 100%;    
+    color: var(--dark);
+}
+
+section#content main div.table-data > div {
+    border-radius: 20px;
+    background: var(--light);
+    padding: 24px;
+}
+
+section#content main div.table-data div.order div.head {
+    display: flex;
+    align-items: center;
+    grid-gap: 16px;
+    margin-bottom: 24px;
+}
+
+section#content main div.table-data div.order div.head h3 {
+    margin-right: auto;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+section#content main div.table-data div.head i.bx {
+    cursor: pointer;
+}
+
+section#content main div.table-data div.order {
+    flex-grow: 1;
+    flex-basis: 500px;
+    overflow-x: scroll;
+}
+
+section#content main div.table-data div.order table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+section#content main div.table-data div.order table th {
+    padding-bottom: 12px;
+    font-size: 13px;
+    text-align: left;
+    border-bottom: 1px solid var(--grey);
+}
+
+section#content main div.table-data div.order table td {
+    padding: 16px 0;    
+}
+
+section#content main div.table-data div.order table tr td:first-child {
+    display: flex;
+    align-items: center;
+    grid-gap: 12px;
+    padding-left: 6px;
+}
+
+section#content main div.table-data div.order table td img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+section#content main div.table-data div.order table tbody tr:hover {
+    background: var(--grey);
+} 
+
+section#content main div.table-data div.order table tr td span.status {
+    font-size: 10px;
+    padding: 6px 1rem;
+    color: var(--light);
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+section#content main div.table-data div.order table tr td span.status.completed {
+    background: var(--blue);
+}
+
+section#content main div.table-data div.order table tr td span.status.process {
+    background: var(--yellow);
+}
+
+section#content main div.table-data div.order table tr td span.status.pending {
+    background: var(--orange);
+}
+
+section#content main div.table-data div.todo {
+    flex-grow: 1;
+    flex-basis: 300px;
+    overflow-x: scroll;
+}
+
+section#content main div.table-data div.todo ul.todo-list {
+    width: 100%;
+}
+
+section#content main div.table-data div.todo ul.todo-list li {
+    width: 100%;
+    margin-bottom: 1rem;    
+    background: var(--grey);
+    border-radius: 10px;
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 10px solid var();
+}
+
+section#content main div.table-data div.todo ul.todo-list li i.bx {
+    cursor: pointer;
+}
+
+section#content main div.table-data div.todo ul.todo-list li.completed {
+    border-left: 10px solid var(--blue) ;
+}
+
+section#content main div.table-data div.todo ul.todo-list li.not-completed {
+    border-left: 10px solid var(--orange) ;
+}
+
+section#content main div.table-data div.todo div.head ul.todo-list li:last-child {
+    margin-bottom: 0rem;
+}
+
+/* MAIN */
+
+
 @media screen and (max-width: 768px) {
+    section#sidebar {
+        width: 200px;
+    }
     section#content {
         width: calc(100% - 60px);
+        left: 200px;
     }
     section#content nav a.nav-list {
         display: none;
@@ -315,5 +579,18 @@ section#content nav a.profile img{
     section#content nav form.show ~ .notification,
     section#content nav form.show ~ .profile {
         display: none;
+    }
+
+    section#content main ul.box-info {
+        grid-template-columns: 1fr;
+    }
+    section#content main div.table-data div.order div.head {
+        min-width: 420px;
+    }
+    section#content main div.table-data div.order table {
+        min-width: 420px;
+    }
+    section#content main div.table-data div.todo ul.todo-list {
+        min-width: 420px;
     }
 }
