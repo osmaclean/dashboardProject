@@ -45,7 +45,12 @@ section#sidebar {
     height: 100%;
     z-index: 1000;
     font-family: var(--lato);
+    transition: .3s ease;
+    overflow-x: hidden;
+}
 
+section#sidebar.hide {
+    width: 60px;
 }
 
 section#sidebar a.brand {
@@ -81,10 +86,6 @@ section#sidebar ul.side-menu li.active {
     background: var(--grey);
     position: relative;
     transition: 300ms;
-}
-
-section#sidebar ul.side-menu li.active a {
-    color: var(--blue);
 }
 
 section#sidebar ul.side-menu li.active::before {
@@ -123,6 +124,17 @@ section#sidebar ul.side-menu li a {
     font-size: 16px;
     color: var(--dark);
     transition: 500ms ease;
+    white-space: nowrap;
+    overflow-x: hidden;
+}
+
+section#sidebar.hide ul.side-menu li.active a {
+    color: var(--blue);
+}
+
+section#sidebar.hide ul.side-menu li a {
+    width: calc(48px - (4px * 2));
+    transition: .3s ease;
 }
 
 section#sidebar ul.side-menu li a.logout {
@@ -148,8 +160,12 @@ section#content {
     position: relative;
     width: calc(100% - 280px);
     left: 280px;
+    transition: .3s ease;
+}
 
-
+section#sidebar.hide ~ section#content {
+    width: calc(100% - 60px);
+    left: 60px;
 }
 
 /* NAVBAR */
@@ -258,4 +274,46 @@ section#content nav a.profile img{
     height: 36px;
     object-fit: cover;
     border-radius: 50%;
+}
+
+@media screen and (max-width: 768px) {
+    section#content {
+        width: calc(100% - 60px);
+    }
+    section#content nav a.nav-list {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 576px) {
+   
+    section#content nav form div.form-input input {
+        display: none;
+    }
+
+    section#content nav form div.form-input button {
+        width: auto;
+        height: auto;
+        background: transparent;
+        border-radius: none;
+        color: var(--dark);
+        
+    }
+
+    section#content nav form.show div.form-input input {
+        display: block;
+        width: 100%;
+    }
+    section#content nav form.show div.form-input button {
+        width: 36px;
+        height: 100%;
+        border-radius: 0 36px 36px 0;
+        color: var(--light);
+        background: var(--red);
+    }
+
+    section#content nav form.show ~ .notification,
+    section#content nav form.show ~ .profile {
+        display: none;
+    }
 }
