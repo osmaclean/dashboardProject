@@ -43,7 +43,6 @@ Modo Mobile 📲
 </div>
 
 ## Parte 2 - Funcionalidade ⚙
-
 Funcionalidade via JavaScript. Utilizando conceitos como DOM, Eventos, Laços, Métodos, Arrow Function, Function Expression e Condicionais. 
 
 ![dash](https://user-images.githubusercontent.com/115199808/235801860-7454290b-fde7-40a9-bbcc-1e0563c42d84.gif)
