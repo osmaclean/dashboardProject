@@ -16,13 +16,11 @@ Projeto criado para o desenvolvimento de um Dashboard, utilizando as tecnologias
 
 ### Interfaces
 Modo Desktop 💻
-
 ![desk](https://user-images.githubusercontent.com/115199808/235798784-4282f448-0b13-4005-b24b-a122b6705072.png)
 
 <hr>
 
 Modo Mobile 📲
-
 ![mob](https://user-images.githubusercontent.com/115199808/235798863-1403839a-1675-47a8-8cac-15c3125945ee.png)
 
 <hr>
